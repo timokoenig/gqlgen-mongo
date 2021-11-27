@@ -18,8 +18,30 @@ go run github.com/timokoenig/gqlgen-mongo
 
 ```go
 type User struct {
-	ID          string        `json:"id" bson:"_id,omitempty"`
-	CreatedAt   time.Time     `json:"createdAt" bson:"createdAt,omitempty"`
-	Email       string        `json:"email" bson:"email,omitempty"`
+  ID          string        `json:"id" bson:"_id,omitempty"`
+  CreatedAt   time.Time     `json:"createdAt" bson:"createdAt,omitempty"`
+  Email       string        `json:"email" bson:"email,omitempty"`
+}
+```
+
+## Custom Tags
+
+Add custom tags to your struct by adding it to the field description
+
+```go
+type User {
+  """
+  The users email address
+  +valid:"email"
+  """
+  email: String
+}
+```
+
+This will generate the following output
+
+```go
+type User struct {
+  Email    string    `json:"email" bson:"email,omitempty" valid:"email"`
 }
 ```
