@@ -1,7 +1,7 @@
 module github.com/timokoenig/gqlgen-mongo
 
-go 1.14
+go 1.16
 
 require (
-	github.com/99designs/gqlgen v0.13.0
+	github.com/99designs/gqlgen v0.16.0
 )
